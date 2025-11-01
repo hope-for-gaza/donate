@@ -76,6 +76,7 @@
             display: flex;
             align-items: center;
             height: 75px;
+            cursor: pointer;
         }
         
         .logo img {
@@ -265,8 +266,8 @@
     <!-- Simple Header -->
     <header class="donation-header">
         <div class="container header-container">
-            <div class="logo">
-                <img src="images/logo.png" alt="Hope for Gaza Foundation">
+            <div class="logo" onclick="window.location.href='https://hope-for-gaza.github.io/en/'">
+                <img src="../images/logo.png" alt="Hope for Gaza Foundation">
                 <div class="logo-text">Hope for Gaza Foundation</div>
             </div>
         </div>
@@ -316,7 +317,53 @@
                     }
                 }, 1000);
             }
+            
+            // Check for URL parameters to set default donation amount
+            const urlParams = new URLSearchParams(window.location.search);
+            const amountParam = urlParams.get('amount');
+            const sourceParam = urlParams.get('source');
+            
+            if (amountParam) {
+                // Update the iframe src with the specified amount
+                const iframe = document.querySelector('.donorbox-container iframe');
+                if (iframe) {
+                    const currentSrc = iframe.src;
+                    // Remove any existing amount parameter
+                    const baseSrc = currentSrc.split('&amount=')[0].split('?amount=')[0];
+                    // Add the new amount parameter
+                    iframe.src = baseSrc + (baseSrc.includes('?') ? '&' : '?') + 'amount=' + amountParam;
+                }
+                
+                // Track the source of the donation
+                if (sourceParam && typeof _Hasync !== 'undefined') {
+                    _Hasync.push(['Histats.track_hits', '']);
+                }
+            }
+            
+            // Check if there's a stored button click from the homepage
+            const buttonClicked = sessionStorage.getItem('donationButtonClicked');
+            if (buttonClicked) {
+                // Track the specific button that was clicked
+                if (typeof _Hasync !== 'undefined') {
+                    _Hasync.push(['Histats.track_hits', '']);
+                }
+                // Clear the stored value
+                sessionStorage.removeItem('donationButtonClicked');
+            }
         });
     </script>
+
+    <!-- Histats.com  START  (aync)-->
+    <script type="text/javascript">var _Hasync= _Hasync|| [];
+    _Hasync.push(['Histats.start', '1,4939105,4,0,0,0,00010000']);
+    _Hasync.push(['Histats.fasi', '1']);
+    _Hasync.push(['Histats.track_hits', '']);
+    (function() {
+    var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+    hs.src = ('//s10.histats.com/js15_as.js');
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+    })();</script>
+    <noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4939105&101" alt="web page hit counter" border="0"></a></noscript>
+    <!-- Histats.com  END  -->
 </body>
 </html>
