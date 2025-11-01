@@ -267,7 +267,7 @@
     <header class="donation-header">
         <div class="container header-container">
             <div class="logo" onclick="window.location.href='https://hope-for-gaza.github.io/en/'">
-                <img src="../images/logo.png" alt="Hope for Gaza Foundation">
+                <img src="images/logo.png" alt="Hope for Gaza Foundation">
                 <div class="logo-text">Hope for Gaza Foundation</div>
             </div>
         </div>
@@ -333,11 +333,11 @@
                     // Add the new amount parameter
                     iframe.src = baseSrc + (baseSrc.includes('?') ? '&' : '?') + 'amount=' + amountParam;
                 }
-                
-                // Track the source of the donation
-                if (sourceParam && typeof _Hasync !== 'undefined') {
-                    _Hasync.push(['Histats.track_hits', '']);
-                }
+            }
+            
+            // Track the source of the donation
+            if (sourceParam && typeof _Hasync !== 'undefined') {
+                _Hasync.push(['Histats.track_hits', '']);
             }
             
             // Check if there's a stored button click from the homepage
