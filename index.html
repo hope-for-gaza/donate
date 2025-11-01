@@ -152,6 +152,8 @@
         .donorbox-container iframe {
             display: block;
             margin: 0 auto;
+            /* Override the inline min-width for better mobile experience */
+            min-width: 280px !important;
         }
         
         /* Simple Footer for Donation Page */
@@ -191,8 +193,9 @@
             }
             
             .donation-form-wrapper {
-                padding: 30px 20px;
-                margin: 0 10px;
+                padding: 30px 15px;
+                margin: 0 5px;
+                max-width: 95%;
             }
             
             .donation-info h1 {
@@ -201,6 +204,12 @@
             
             .logo img {
                 max-width: 220px;
+            }
+            
+            .donorbox-container iframe {
+                /* Wider on mobile - override the inline styles */
+                min-width: 280px !important;
+                width: 100% !important;
             }
         }
         
@@ -227,7 +236,27 @@
             }
             
             .donation-form-wrapper {
-                padding: 25px 15px;
+                padding: 25px 12px;
+                margin: 0;
+                max-width: 100%;
+                border-radius: 0;
+            }
+            
+            .donorbox-container iframe {
+                /* Even wider on small mobile devices */
+                min-width: 300px !important;
+                width: 100% !important;
+            }
+        }
+        
+        /* Extra small devices */
+        @media (max-width: 400px) {
+            .donation-form-wrapper {
+                padding: 20px 8px;
+            }
+            
+            .donorbox-container iframe {
+                min-width: 320px !important;
             }
         }
     </style>
@@ -255,7 +284,7 @@
                 <!-- DonorBox Embedded Form -->
                 <div class="donorbox-container">
                     <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
-                    <iframe src="https://donorbox.org/embed/hope-for-gaza-834400?default_interval=m&amount=100" name="donorbox" allowpaymentrequest="allowpaymentrequest" seamless="seamless" frameborder="0" scrolling="no" height="900px" width="100%" style="max-width: 500px; min-width: 250px; max-height:none!important" allow="payment"></iframe>
+                    <iframe src="https://donorbox.org/embed/hope-for-gaza-834400?default_interval=m&amount=50" name="donorbox" allowpaymentrequest="allowpaymentrequest" seamless="seamless" frameborder="0" scrolling="no" height="900px" width="100%" style="max-width: 500px; min-width: 250px; max-height:none!important" allow="payment"></iframe>
                 </div>
             </div>
         </div>
