@@ -54,11 +54,14 @@
             padding: 0 20px;
         }
         
-        /* Simple Header for Donation Page */
+        /* Simple Header for Donation Page - Matching original site height */
         .donation-header {
             background-color: var(--palestine-white);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 20px 0;
+            padding: 15px 0;
+            height: 95px;
+            display: flex;
+            align-items: center;
         }
         
         .header-container {
@@ -66,18 +69,19 @@
             justify-content: center;
             align-items: center;
             padding: 0 20px;
+            width: 100%;
         }
         
         .logo {
             display: flex;
             align-items: center;
-            height: 60px;
+            height: 75px;
         }
         
         .logo img {
             height: 100%;
             width: auto;
-            max-width: 280px;
+            max-width: 300px;
             object-fit: contain;
         }
         
@@ -177,6 +181,15 @@
         
         /* Responsive Styles */
         @media (max-width: 768px) {
+            .donation-header {
+                height: 80px;
+                padding: 12px 0;
+            }
+            
+            .logo {
+                height: 60px;
+            }
+            
             .donation-form-wrapper {
                 padding: 30px 20px;
                 margin: 0 10px;
@@ -186,26 +199,27 @@
                 font-size: 1.6rem;
             }
             
-            .logo {
-                height: 50px;
-            }
-            
             .logo img {
                 max-width: 220px;
             }
         }
         
         @media (max-width: 576px) {
+            .donation-header {
+                height: 70px;
+                padding: 10px 0;
+            }
+            
+            .logo {
+                height: 50px;
+            }
+            
             .donation-section {
                 padding: 20px 0;
             }
             
             .donation-info h1 {
                 font-size: 1.4rem;
-            }
-            
-            .logo {
-                height: 45px;
             }
             
             .logo img {
