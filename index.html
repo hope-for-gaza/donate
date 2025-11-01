@@ -101,13 +101,15 @@
             flex: 1;
             display: flex;
             align-items: center;
+            justify-content: center;
             padding: 40px 0;
         }
         
         .donation-container {
             width: 100%;
             max-width: 600px;
-            margin: 0 auto;
+            display: flex;
+            justify-content: center;
         }
         
         .donation-form-wrapper {
@@ -115,6 +117,8 @@
             border-radius: 8px;
             padding: 40px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 600px;
         }
         
         .donation-info {
@@ -132,6 +136,18 @@
         .donation-info p {
             color: var(--gray);
             margin-bottom: 5px;
+        }
+        
+        /* DonorBox iframe container */
+        .donorbox-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .donorbox-container iframe {
+            display: block;
+            margin: 0 auto;
         }
         
         /* Simple Footer for Donation Page */
@@ -195,6 +211,10 @@
             .logo img {
                 max-width: 200px;
             }
+            
+            .donation-form-wrapper {
+                padding: 25px 15px;
+            }
         }
     </style>
 </head>
@@ -219,8 +239,10 @@
                 </div>
                 
                 <!-- DonorBox Embedded Form -->
-                <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
-                <iframe src="https://donorbox.org/embed/hope-for-gaza-834400?" name="donorbox" allowpaymentrequest="allowpaymentrequest" seamless="seamless" frameborder="0" scrolling="no" height="900px" width="100%" style="max-width: 500px; min-width: 250px; max-height:none!important" allow="payment"></iframe>
+                <div class="donorbox-container">
+                    <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
+                    <iframe src="https://donorbox.org/embed/hope-for-gaza-834400?amount=100" name="donorbox" allowpaymentrequest="allowpaymentrequest" seamless="seamless" frameborder="0" scrolling="no" height="900px" width="100%" style="max-width: 500px; min-width: 250px; max-height:none!important" allow="payment"></iframe>
+                </div>
             </div>
         </div>
     </section>
